@@ -2,15 +2,18 @@ import {  useState } from "react"
 import { useFetch } from "../../hooks/useFetch"
 import CountryList  from '../../componants/CountryList'
 import './Home.css'
+import search from '../../assets/search.svg'
 
 export default function Home() {
 
     const [url, setUrl] = useState('https://restcountries.com/v3.1/all')
     const { data, isPending, error } = useFetch(url)
+    const searchbar = document.getElementById('search')
 
     const handleSearch = (term) => {
         if(term !== ''){
             setUrl(`https://restcountries.com/v3.1/name/${term}`)
+            
         }else {
             setUrl(('https://restcountries.com/v3.1/all'))
         }
@@ -29,12 +32,12 @@ export default function Home() {
   return (
     <div>
         <div class="search-order-wrapper">
-            <div className="searchbar">
-                <input id="search" placeholder="Search for a country..." type="text" onChange={e => handleSearch(e.target.value)} required />
+            <div >
+                <input className="searchbar " id="search" placeholder="Search for a country..." type="text" onChange={e => handleSearch(e.target.value)} required />
              </div>
-            <div>
+            <div >
                 <label htmlFor="region"></label>
-                <select name="region" id="region" onChange={e => handlefilter(e.target.value)}>
+                <select className="select-region " name="region" id="region" onChange={e => handlefilter(e.target.value)}>
                     <option value="all">Filter by Region</option>
                     <option value="africa">Africa</option>
                     <option value="america">America</option>

@@ -1,7 +1,24 @@
 .search-order-wrapper {
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
     width: 90%; max-width: 1600px;
-    margin: 40px auto;
+    margin:  2em  auto;
     padding: 0 40px;
+}
+
+.searchbar {
+    background: url(../../assets/search.svg) no-repeat;
+    background-position: left; background-position-x: 1em; 
+    width: 100%; 
+    margin-bottom: 2em;
+    text-indent: 30px;
+} 
+
+.searchbar, .select-region {
+    box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.1);
+    background-color: var(--light-mode-ele); 
+    border: none !important;
+    padding: 1em;
+    border-radius: 5px;
 }
