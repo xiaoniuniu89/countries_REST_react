@@ -4,6 +4,7 @@ import './App.css';
 import Country from './pages/country/Country';
 import Home from './pages/home/Home';
 import Navbar from './componants/Navbar'
+import { useTheme } from './hooks/useTheme';
 
 
 
@@ -11,9 +12,10 @@ import Navbar from './componants/Navbar'
 
 function App() {
   
+  const { mode } = useTheme()
 
   return (
-    <div className="App">
+    <div className={`App ${mode}`}>
       <BrowserRouter>
       <Navbar />
         <Switch>

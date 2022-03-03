@@ -2,12 +2,15 @@ import {  useState } from "react"
 import { useFetch } from "../../hooks/useFetch"
 import CountryList  from '../../componants/CountryList'
 import './Home.css'
+import { useTheme } from "../../hooks/useTheme"
 import search from '../../assets/search.svg'
+
 
 export default function Home() {
 
     const [url, setUrl] = useState('https://restcountries.com/v3.1/all')
     const { data, isPending, error } = useFetch(url)
+    const { mode } = useTheme()
 
 
     const handleSearch = (term) => {
@@ -33,11 +36,12 @@ export default function Home() {
     <div>
         <div className="search-order-wrapper">
             <div className="search-wrapper" >
-                <input className="searchbar " id="search" placeholder="Search for a country..." type="text" onChange={e => handleSearch(e.target.value)} required />
+                <img src={search} className='search-icon' style={{filter: mode === 'dark' ? 'invert(80%)' : 'invert(50%)'}}/>
+                <input className={`searchbar ${mode}`} id="search" placeholder="Search for a country..." type="text" onChange={e => handleSearch(e.target.value)} required ></input>
              </div>
             <div className="select-wrapper">
                 <label htmlFor="region"></label>
-                <select className="select-region " name="region" id="region" onChange={e => handlefilter(e.target.value)}>
+                <select className={`select-region ${mode}`} name="region" id="region" onChange={e => handlefilter(e.target.value)}>
                     <option value="all">Filter by Region</option>
                     <option value="africa">Africa</option>
                     <option value="america">America</option>

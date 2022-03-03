@@ -25,7 +25,7 @@ body {
   --light-mode-ele: hsl(0, 0%, 100%);
   --dark-mode-bg: hsl(207, 26%, 17%);
   --light-mode-bg: hsl(0, 0%, 98%);
-  --dark-mode-txt: hsl(0, 0%, 100%);
+  --dark-mode-txt: hsl(0, 50%, 98%);
   --light-mode-txt: hsl(200, 15%, 8%);
   --light-mode-input: hsl(0, 0%, 52%);
 }
@@ -46,3 +46,24 @@ body {
   border-radius: 5px;
   box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.1);
 }
+
+.navbar.dark, input.dark {
+  background-color: rgb(250, 197, 4) !important;
+}
+
+.logo.dark, p.dark {
+  color: var(--dark-mode-txt);
+}
+
+
+.App.dark {
+  background: rgb(14, 55, 97) !important;
+  color: var(--dark-mode-txt);
+  transition: .2s ease-in;
+}
+
+.card.dark, .searchbar.dark, .select-region.dark, .button.dark{
+  background: rgb(2, 64, 126) !important;
+  color: var(--dark-mode-txt);
+}
+

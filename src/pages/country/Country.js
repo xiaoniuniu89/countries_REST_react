@@ -2,6 +2,7 @@ import { useEffect } from "react"
 import { useParams, Link, useHistory } from "react-router-dom"
 import BorderLink from "../../componants/BorderLink"
 import { useFetch } from "../../hooks/useFetch"
+import { useTheme } from "../../hooks/useTheme"
 import './Country.css'
 
 
@@ -10,6 +11,7 @@ export default function Country() {
   const url = 'https://restcountries.com/v3.1/name/' + name + '?fullText=true' 
   const { data, isPending, error } = useFetch(url)
   const history = useHistory()
+  const {mode} = useTheme()
   
 
   const fetchLanguage = (languages) => {
@@ -33,15 +35,14 @@ export default function Country() {
 
   return (
     <div className="outer-wrapper">
-      {isPending && <h1 className="loading">Loading...</h1>}
-      {error && <h1 className="error">{error}</h1>}
       <Link to='/' >
-        <div className="back-btn button">
-          <span className="back-icon"/>
+        <div className={`back-btn button ${mode}`}>
+          <span className="back-icon" style={{filter: mode === 'dark' ? 'invert(100%)' : ''}}/>
           <span>Back</span>
         </div>
-        
-        </Link>
+      </Link>
+      {isPending && <h1 className="loading">Loading...</h1>}
+      {error && <h1 className="error">{error}</h1>}
       {data && data.map(country => (
         
         <div key={country.name.common} className="inner-wrapper">
@@ -68,7 +69,7 @@ export default function Country() {
             {country.borders && <h3 className="title">Border Countries:</h3> }
               <div className="border-wrapper">
                 {country.borders && country.borders.map(crt => (
-                  <BorderLink code={crt} />
+                  <BorderLink key={crt} code={crt} />
                 ))}
               </div>
               

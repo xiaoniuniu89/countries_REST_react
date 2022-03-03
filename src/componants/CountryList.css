@@ -5,7 +5,7 @@
     display: grid;
     grid-template-columns: 1fr ;
     grid-gap: 40px;
-    width: 90%; max-width: 1600px;
+    width: 100%; max-width: 1600px;
     margin: 40px auto;
   }
 
@@ -21,7 +21,7 @@
 .flag {
     width: 100%;
     object-fit: cover; 
-    height: 160px;
+    height: 155px;
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
 }
