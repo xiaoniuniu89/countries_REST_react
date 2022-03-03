@@ -8,7 +8,7 @@ export default function Home() {
 
     const [url, setUrl] = useState('https://restcountries.com/v3.1/all')
     const { data, isPending, error } = useFetch(url)
-    const searchbar = document.getElementById('search')
+
 
     const handleSearch = (term) => {
         if(term !== ''){
