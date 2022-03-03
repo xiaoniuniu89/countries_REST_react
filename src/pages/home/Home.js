@@ -31,7 +31,7 @@ export default function Home() {
 
   return (
     <div>
-        <div class="search-order-wrapper">
+        <div className="search-order-wrapper">
             <div >
                 <input className="searchbar " id="search" placeholder="Search for a country..." type="text" onChange={e => handleSearch(e.target.value)} required />
              </div>

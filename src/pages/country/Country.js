@@ -1,4 +1,6 @@
+import { useEffect } from "react"
 import { useParams, Link } from "react-router-dom"
+import BorderLink from "../../componants/BorderLink"
 import { useFetch } from "../../hooks/useFetch"
 import './Country.css'
 
@@ -18,7 +20,10 @@ export default function Country() {
     return Object.values(names).slice(-1)[0].common
   }
 
-  
+  const FetchBorderUrl = (code) => {
+    const url2 = 'https://restcountries.com/v3.1/alpha/' + code
+    const { data, isPending, error } = useFetch(url2)
+  }
 
 
   return (
@@ -44,14 +49,15 @@ export default function Country() {
                 </div>
                 <div className="stats-two">
                   <p><span className='bold'>Top Level Domain:</span> {country.tld}</p>
-                  <p><span className='bold'>Currency:</span> {Object.values(country.currencies)[0].name}</p>
+                  <p><span className='bold'>Currency:</span> {Object.values(country.currencies)[0].name} {Object.values(country.currencies)[0].symbol} </p>
                   <p><span className='bold'>Languages:</span> {fetchLanguage(country.languages)}</p>
                 </div> 
               </div>
             <div className="border-countries">
               {country.borders && country.borders.map(crt => (
-                <p key={crt}>{crt}</p>
+                <BorderLink code={crt} />
               ))}
+              
             </div>
           </div>
         </div>

@@ -6,8 +6,8 @@ export default function CountryList({countries}) {
   return (
     <div className='countries-wrapper'>
         {countries && countries.map((country) => (
-            <Link to={`/country/${country.name.common}`}>
-              <div className='card border-box-shadow' key={uuidv4()}>
+            <Link key={uuidv4()} to={`/country/${country.name.common}`}>
+              <div className='card border-box-shadow' >
                   <img className='flag' src={country.flags.svg} alt={country.name.common}flag></img>
                   <div className='card-info'>
                       <h2 className='title'>{country.name.common}</h2>
