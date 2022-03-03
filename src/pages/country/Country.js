@@ -30,11 +30,17 @@ export default function Country() {
     <div className="outer-wrapper">
       {isPending && <h1 className="loading">Loading...</h1>}
       {error && <h1 className="error">{error}</h1>}
-      <Link to='/' className="back-btn">back</Link>
+      <Link to='/' >
+        <div className="back-btn button">
+          <span className="back-icon"/>
+          <span>Back</span>
+        </div>
+        
+        </Link>
       {data && data.map(country => (
         
         <div key={country.name.common} className="inner-wrapper">
-          <div className="flag">
+          <div className="flag-wrapper">
             <img className='flag' src={country.flags.svg} alt={country.name.common}></img>
           </div>
           <div className="info-wrapper">
@@ -54,9 +60,12 @@ export default function Country() {
                 </div> 
               </div>
             <div className="border-countries">
-              {country.borders && country.borders.map(crt => (
-                <BorderLink code={crt} />
-              ))}
+              <h3 className="title">Border Countries:</h3>
+              <div className="border-wrapper">
+                {country.borders && country.borders.map(crt => (
+                  <BorderLink code={crt} />
+                ))}
+              </div>
               
             </div>
           </div>
