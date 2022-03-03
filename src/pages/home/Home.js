@@ -32,10 +32,10 @@ export default function Home() {
   return (
     <div>
         <div className="search-order-wrapper">
-            <div >
+            <div className="search-wrapper" >
                 <input className="searchbar " id="search" placeholder="Search for a country..." type="text" onChange={e => handleSearch(e.target.value)} required />
              </div>
-            <div >
+            <div className="select-wrapper">
                 <label htmlFor="region"></label>
                 <select className="select-region " name="region" id="region" onChange={e => handlefilter(e.target.value)}>
                     <option value="all">Filter by Region</option>

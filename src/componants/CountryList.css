@@ -20,7 +20,7 @@
 
 .flag {
     width: 100%;
-    object-fit: cover;
+    object-fit: cover; 
     height: 160px;
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;

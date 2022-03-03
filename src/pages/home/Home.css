@@ -22,3 +22,20 @@
     padding: 1em;
     border-radius: 5px;
 }
+
+
+@media screen and (min-width: 800px) {
+    .search-order-wrapper {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-start;
+    }
+    
+    .search-wrapper {
+        width: 40%;
+    }
+
+    .searchbar {
+        margin-bottom: 0;
+    }
+}

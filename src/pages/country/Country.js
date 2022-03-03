@@ -1,5 +1,5 @@
 import { useEffect } from "react"
-import { useParams, Link } from "react-router-dom"
+import { useParams, Link, useHistory } from "react-router-dom"
 import BorderLink from "../../componants/BorderLink"
 import { useFetch } from "../../hooks/useFetch"
 import './Country.css'
@@ -9,6 +9,7 @@ export default function Country() {
   const { name } = useParams()
   const url = 'https://restcountries.com/v3.1/name/' + name + '?fullText=true' 
   const { data, isPending, error } = useFetch(url)
+  const history = useHistory()
   
 
   const fetchLanguage = (languages) => {
@@ -20,10 +21,14 @@ export default function Country() {
     return Object.values(names).slice(-1)[0].common
   }
 
-  const FetchBorderUrl = (code) => {
-    const url2 = 'https://restcountries.com/v3.1/alpha/' + code
-    const { data, isPending, error } = useFetch(url2)
-  }
+  useEffect(() => {
+    if(error){
+      setTimeout(() => {
+        history.push('/')
+      }, 2000)
+      
+    }
+  }, [error, history])
 
 
   return (
@@ -41,10 +46,10 @@ export default function Country() {
         
         <div key={country.name.common} className="inner-wrapper">
           <div className="flag-wrapper">
-            <img className='flag' src={country.flags.svg} alt={country.name.common}></img>
+            <img className='flag-country' src={country.flags.svg} alt={country.name.common}></img>
           </div>
           <div className="info-wrapper">
-              <div>
+              <div className="info-inner">
                 <div className="stats-one">
                   <h2 className='title'>{country.name.common}</h2>
                   <p><span className='bold'>Native Name:</span> {fetchNativeName(Object.values(country.name.nativeName))}</p>
@@ -60,7 +65,7 @@ export default function Country() {
                 </div> 
               </div>
             <div className="border-countries">
-              <h3 className="title">Border Countries:</h3>
+            {country.borders && <h3 className="title">Border Countries:</h3> }
               <div className="border-wrapper">
                 {country.borders && country.borders.map(crt => (
                   <BorderLink code={crt} />

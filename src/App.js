@@ -23,6 +23,9 @@ function App() {
           <Route path='/country/:name'>
             <Country />
           </Route>
+          <Route path='*'>
+            <Home />
+          </Route>
         </Switch>
       </BrowserRouter>
     </div>
