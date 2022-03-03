@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/countries_REST_react/static/css/main.ce365e5d.css",
+    "main.js": "/countries_REST_react/static/js/main.eb3ce80c.js",
+    "index.html": "/countries_REST_react/index.html",
+    "static/media/moon.svg": "/countries_REST_react/static/media/moon.fdb51e7c4ec36ce7cfc7ad965dfe4ab0.svg",
+    "static/media/search.svg": "/countries_REST_react/static/media/search.6c95e853cf5a1eedd6e285cecedda3a3.svg",
+    "static/media/arrow.svg": "/countries_REST_react/static/media/arrow.ceecbfa5efdd8fe4e763.svg",
+    "main.ce365e5d.css.map": "/countries_REST_react/static/css/main.ce365e5d.css.map",
+    "main.eb3ce80c.js.map": "/countries_REST_react/static/js/main.eb3ce80c.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.ce365e5d.css",
+    "static/js/main.eb3ce80c.js"
+  ]
+}
